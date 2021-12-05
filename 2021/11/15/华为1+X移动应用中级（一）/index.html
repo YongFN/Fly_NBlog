@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Fly_N">
+    
+    <title>
+        
+            华为1+X移动应用中级（一） |
+        
+        Fly_N的blog
+    </title>
+    
+<link rel="stylesheet" href="/Fly_NBlog/css/style.css">
+
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/YongFN/blog-images@master/info/avatar.1t5mismc241s.jpg">
+    
+<link rel="stylesheet" href="/Fly_NBlog/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"yongfn.github.io","root":"/Fly_NBlog/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"https://cdn.jsdelivr.net/gh/YongFN/blog-images@master/info/avatar.1t5mismc241s.jpg","favicon":"https://cdn.jsdelivr.net/gh/YongFN/blog-images@master/info/avatar.1t5mismc241s.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"https://cdn.jsdelivr.net/gh/YongFN/blog-images@master/image/bg.5nz5zbqwgolc.svg","description":"遇见你，是我此生最大的幸福"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://cdn.jsdelivr.net/gh/YongFN/blog-images@master/info/avatar.1t5mismc241s.jpg">
+                </a>
+            
+            <a class="logo-title" href="/">
+                Fly_N的blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/Fly_NBlog/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/Fly_NBlog/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/Fly_NBlog/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/Fly_NBlog/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/Fly_NBlog/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/Fly_NBlog/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/Fly_NBlog/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/Fly_NBlog/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/Fly_NBlog/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/Fly_NBlog/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">华为1+X移动应用中级（一）</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://cdn.jsdelivr.net/gh/YongFN/blog-images@master/info/avatar.1t5mismc241s.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Fly_N</span>
+                        
+                            <span class="author-label">实习前端</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-11-15 20:39:52
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/Fly_NBlog/tags/HarmonyOS/">HarmonyOS</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/Fly_NBlog/tags/Java%E5%9F%BA%E7%A1%80/">Java基础</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>803 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h2><h3 id="Java三个主要版本"><a href="#Java三个主要版本" class="headerlink" title="Java三个主要版本"></a>Java三个主要版本</h3><ul>
+<li>Java SE：标准版，用于桌面应用程序开发，也是Java的基础</li>
+<li>Java EE：企业版，用于开发企业级分布式的网络程序</li>
+<li>Java ME：用于嵌入式系统开发，需要底层操作系统支持</li>
+</ul>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
+<li>简单的（simple）</li>
+<li>面向对象的（object-oriented）</li>
+<li>分布式的（distributed）</li>
+<li>解释性的（interpreted）</li>
+<li>健壮的（robust）</li>
+<li>安全的（secure）</li>
+<li>结构中立的（architecture neutral）</li>
+<li>便捷的（portable）</li>
+<li>高性能的（high-performance）</li>
+<li>多线程的（multithreaded）</li>
+<li>动态的（dynamic）</li>
+</ul>
+<h3 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h3><ul>
+<li>面向过程（Procedure Oriented Programming）简称 POP<ul>
+<li>基础的顺序思维，过程为中心</li>
+<li>核心问题是数据结构和算法的开发和优化</li>
+</ul>
+</li>
+<li>面向对象（Object Oriented Programming）简称 OOP<ul>
+<li>按客观世界思维方式，以对象为中心</li>
+<li>直接重现问题中各个对象之间的关系</li>
+<li>基本特性：抽象、继承、封装、多态</li>
+</ul>
+</li>
+</ul>
+<h3 id="标识符、注释"><a href="#标识符、注释" class="headerlink" title="标识符、注释"></a>标识符、注释</h3><ul>
+<li>标识符由数字、字母、下划线、美元符组成</li>
+<li>严格区分大小写</li>
+</ul>
+<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><ul>
+<li><p>单行注释：//开头</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这是一行注释</span></span><br></pre></td></tr></table></figure></li>
+<li><p>多行注释：“ /* “开头，” */ “结尾</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	这是一块注释</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></li>
+<li><p>文档注释：“ /** ” 开头，“ */ ”结尾</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	<span class="doctag">@value</span> 这是文档注释</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="常量、变量"><a href="#常量、变量" class="headerlink" title="常量、变量"></a>常量、变量</h3><h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><ul>
+<li><p>使用前必须定义，需要初始化</p>
+</li>
+<li><p>初始化后不可修改</p>
+</li>
+<li><p>使用final关键字定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> String STR = <span class="string">&quot;这是一个常量&quot;</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>常用大写字母表示，区分变量</p>
+</li>
+<li><p>静态常量定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">static</span> String STR = <span class="string">&quot;这是一个静态常量&quot;</span>;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="常量值"><a href="#常量值" class="headerlink" title="常量值"></a>常量值</h4><ul>
+<li><p>整型：十进制、八进制（0开头）、十六进制（0X或0x开头）</p>
+</li>
+<li><p>长整型：整型后面以 L 结尾</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> testNumber = <span class="number">12</span>;	<span class="comment">//整型</span></span><br><span class="line"><span class="keyword">int</span> testNumber2 = <span class="number">12L</span>;	 <span class="comment">//长整型</span></span><br></pre></td></tr></table></figure></li>
+<li><p>浮点型：十进制由数字和小数点组成，科学记数法其中e或E之前必须有数字，之后的数字必须为整数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> num1 = <span class="number">1.2</span>;	 <span class="comment">//十进制</span></span><br><span class="line"><span class="keyword">float</span> num2 = <span class="number">1.25e3</span>;	 <span class="comment">//科学记数法</span></span><br></pre></td></tr></table></figure></li>
+<li><p>布尔型：true或false</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> val = <span class="keyword">true</span>;</span><br><span class="line"><span class="keyword">boolean</span> val2 = <span class="keyword">false</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>字符型：单引号括起来的单个字符（数据类型为char）以及转义字符（以 \ 开头的字符序列）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> c = <span class="number">97</span>;	<span class="comment">//A</span></span><br></pre></td></tr></table></figure></li>
+<li><p>字符串：双引号括起来的若干个字符</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">&quot;hello world&quot;</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>转义字符：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">	\r 回车</span></span><br><span class="line"><span class="comment">	\n 换行</span></span><br><span class="line"><span class="comment">	\f 走纸换页</span></span><br><span class="line"><span class="comment">	\t 和tab一样</span></span><br><span class="line"><span class="comment">	\b 退格</span></span><br><span class="line"><span class="comment">	\ddd 1-3位八进制表示的字符 如\456</span></span><br><span class="line"><span class="comment">	\uxxxx 1-4位十六进制表的字符 如 \u0d60</span></span><br><span class="line"><span class="comment">	\&#x27; 单引号字符</span></span><br><span class="line"><span class="comment">	\&quot; 双引号字符</span></span><br><span class="line"><span class="comment">	\\ 反斜杠字符</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><h5 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h5><h6 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">| 数据类型 | 字节数 | 位数 |     取值范围     | 包装类  | 默认值 |</span><br><span class="line">| :------: | :----: | :--: | :--------------: | :-----: | :----: |</span><br><span class="line">|   byte   |   1    |  8   |  -2^7^ ~ 2^7^-1  |  Byte   |   0    |</span><br><span class="line">|  short   |   2    |  16  | -2^15^ ~ 2^15^-1 |  Short  |   0    |</span><br><span class="line">|   int    |   4    |  32  | -2^31^ ~ 2^31^-1 | Integer |   0    |</span><br><span class="line">|   long   |   8    |  64  | -2^63^ ~ 2^63^-1 |  Long   |   0L   |</span><br></pre></td></tr></table></figure>
+
+<h6 id="浮点数类型"><a href="#浮点数类型" class="headerlink" title="浮点数类型"></a>浮点数类型</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| 数据类型 | 字节数 | 位数 |     取值范围     | 包装类 | 默认值 |</span><br><span class="line">| :------: | :----: | :--: | :--------------: | :----: | :----: |</span><br><span class="line">|  float   |   4    |  32  |  -3.4E38~3.4E38  | Float  |  0.0f  |</span><br><span class="line">|  double  |   8    |  64  | -1.8E308~1.8E308 | Double |  0.0d  |</span><br></pre></td></tr></table></figure>
+
+<h6 id="字符类型"><a href="#字符类型" class="headerlink" title="字符类型"></a>字符类型</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">| 数据类型 | 字节数 | 位数 |      取值范围      |  包装类   |  默认值  |</span><br><span class="line">| :------: | :----: | :--: | :----------------: | :-------: | :------: |</span><br><span class="line">|   char   |   2    |  16  | &#x27;\u000&#x27; ~ &#x27;\uffff&#x27; | Character | &#x27;\u0000&#x27; |</span><br></pre></td></tr></table></figure>
+
+<h6 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">| 数据类型 | 字节数 | 位数 |  取值范围  | 包装类  | 默认值 |</span><br><span class="line">| :------: | :----: | :--: | :--------: | :-----: | :----: |</span><br><span class="line">| Boolean  |   1    |  8   | true,false | Boolean | false  |</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：华为1+X移动应用中级（一）</li>
+        <li>本文作者：Fly_N</li>
+        <li>创建时间：2021-11-15 20:39:52</li>
+        <li>
+            本文链接：https://yongfn.github.io/Fly_NBlog/2021/11/15/华为1+X移动应用中级（一）/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/Fly_NBlog/2021/12/03/Webpack%E5%9F%BA%E7%A1%80/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Webpack基础</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/Fly_NBlog/2021/11/11/Vue2%E7%AC%94%E8%AE%B0(%E4%B8%80)/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Vue2笔记(一)</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script data-pjax>
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'Me18bIqtvQgj2tIKVXMGlvzh-9Nh9j0Va',
+                    appKey: 'hKvkkG2xLKtGstLAJt7lB7WY',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '',
+                    lang: 'zh-CN'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'Fly_N';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('true') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Fly_N</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">Java基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E4%B8%89%E4%B8%AA%E4%B8%BB%E8%A6%81%E7%89%88%E6%9C%AC"><span class="nav-number">1.1.</span> <span class="nav-text">Java三个主要版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%80%A7"><span class="nav-number">1.2.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B"><span class="nav-number">1.3.</span> <span class="nav-text">面向对象编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6%E3%80%81%E6%B3%A8%E9%87%8A"><span class="nav-number">1.4.</span> <span class="nav-text">标识符、注释</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A"><span class="nav-number">1.4.1.</span> <span class="nav-text">注释</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E9%87%8F%E3%80%81%E5%8F%98%E9%87%8F"><span class="nav-number">1.5.</span> <span class="nav-text">常量、变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E9%87%8F"><span class="nav-number">1.5.1.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E9%87%8F%E5%80%BC"><span class="nav-number">1.5.2.</span> <span class="nav-text">常量值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-number">1.5.3.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%95%B4%E6%95%B0%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.5.3.1.1.</span> <span class="nav-text">整数类型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.5.3.1.2.</span> <span class="nav-text">浮点数类型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.5.3.1.3.</span> <span class="nav-text">字符类型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.5.3.1.4.</span> <span class="nav-text">布尔类型</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/Fly_NBlog/js/utils.js"></script>
+
+<script src="/Fly_NBlog/js/main.js"></script>
+
+<script src="/Fly_NBlog/js/header-shrink.js"></script>
+
+<script src="/Fly_NBlog/js/back2top.js"></script>
+
+<script src="/Fly_NBlog/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/Fly_NBlog/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/Fly_NBlog/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/Fly_NBlog/js/left-side-toggle.js"></script>
+
+<script src="/Fly_NBlog/js/libs/anime.min.js"></script>
+
+<script src="/Fly_NBlog/js/toc.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/Fly_NBlog/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
