@@ -1,0 +1,462 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Redis配置 | Nyf's blog</title><meta name="author" content="Nyf"><meta name="copyright" content="Nyf"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="简介一个开源的使用 ANSI C 语言编写、遵守 BSD 协议、支持网络、可基于内存、分布式、可选持久性的键值对(Key-Value)存储数据库，并提供多种语言的 API Redis 通常被称为数据结构服务器，因为值（value）可以是字符串(String)、哈希(Hash)、列表(list)、集合(sets)和有序集合(sorted sets)等类型 使用场景 缓存：热点数据缓存、对象缓存、全页">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis配置">
+<meta property="og:url" content="https://yongfn.github.io/Fly_NBlog/2023/05/27/Redis%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="Nyf&#39;s blog">
+<meta property="og:description" content="简介一个开源的使用 ANSI C 语言编写、遵守 BSD 协议、支持网络、可基于内存、分布式、可选持久性的键值对(Key-Value)存储数据库，并提供多种语言的 API Redis 通常被称为数据结构服务器，因为值（value）可以是字符串(String)、哈希(Hash)、列表(list)、集合(sets)和有序集合(sorted sets)等类型 使用场景 缓存：热点数据缓存、对象缓存、全页">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/YongFN/blog-images@master/info/avatar.6yjil4vlz800.webp">
+<meta property="article:published_time" content="2023-05-27T16:43:51.000Z">
+<meta property="article:modified_time" content="2023-06-24T14:58:15.138Z">
+<meta property="article:author" content="Nyf">
+<meta property="article:tag" content="Redis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.staticaly.com/gh/YongFN/blog-images@master/info/avatar.6yjil4vlz800.webp"><link rel="shortcut icon" href="https://cdn.staticaly.com/gh/YongFN/blog-images@master/info/avatar.6yjil4vlz800.webp"><link rel="canonical" href="https://yongfn.github.io/Fly_NBlog/2023/05/27/Redis%E9%85%8D%E7%BD%AE/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/Fly_NBlog/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/Fly_NBlog/',
+  algolia: undefined,
+  localSearch: {"path":"/Fly_NBlog/search.json","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Nyf","link":"链接: ","source":"来源: Nyf's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Redis配置',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2023-06-24 14:58:15'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/c/font_4095704_r23pho9flu.css"><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.staticaly.com/gh/YongFN/blog-images@master/info/avatar.6yjil4vlz800.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/Fly_NBlog/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/Fly_NBlog/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/Fly_NBlog/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/Fly_NBlog/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Fly_NBlog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/Fly_NBlog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/Fly_NBlog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/Fly_NBlog/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.staticaly.com/gh/YongFN/blog-images@master/pic/bg.298z7yio7ph.webp')"><nav id="nav"><span id="blog-info"><a href="/Fly_NBlog/" title="Nyf's blog"><span class="site-name">Nyf's blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/Fly_NBlog/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Fly_NBlog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/Fly_NBlog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/Fly_NBlog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/Fly_NBlog/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Redis配置</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-05-27T16:43:51.000Z" title="发表于 2023-05-27 16:43:51">2023-05-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-06-24T14:58:15.138Z" title="更新于 2023-06-24 14:58:15">2023-06-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/Fly_NBlog/categories/Redis/">Redis</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Redis配置"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/Fly_NBlog/2023/05/27/Redis%E9%85%8D%E7%BD%AE/#post-comment"><span class="gitalk-comment-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>一个开源的使用 ANSI C 语言编写、遵守 BSD 协议、支持网络、可基于内存、分布式、可选持久性的键值对(Key-Value)存储数据库，并提供多种语言的 API</p>
+<p>Redis 通常被称为数据结构服务器，因为值（value）可以是字符串(String)、哈希(Hash)、列表(list)、集合(sets)和有序集合(sorted sets)等类型</p>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ol>
+<li>缓存：热点数据缓存、对象缓存、全页缓存</li>
+<li>数据共享分布式</li>
+<li>分布式锁</li>
+<li>全局ID：分库分表、利用原子性</li>
+<li>计数器：文章阅读量、点赞数</li>
+<li>限流</li>
+<li>数据统计，通过二进制存储：在线用户统计</li>
+<li>购物车</li>
+<li>消息时间线</li>
+<li>消息队列</li>
+<li>抽奖</li>
+<li>点赞、签到、打卡</li>
+<li>商品标签</li>
+<li>商品筛选</li>
+<li>用户关注，推荐</li>
+<li>排行榜</li>
+</ol>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>默认端口：6379</p>
+<p>配置文件，在安装目录</p>
+<ul>
+<li>Linux：<code>redis.conf</code></li>
+<li>Windows：<code>redis.windows.conf</code></li>
+</ul>
+<h3 id="config命令"><a href="#config命令" class="headerlink" title="config命令"></a>config命令</h3><p>通过<code>config</code>查看配置项，<code>get</code>获取，<code>set</code>设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//获取loglevel配置项</span><br><span class="line">config get loglevel</span><br><span class="line">//获取所有配置项</span><br><span class="line">config get *</span><br><span class="line"></span><br><span class="line">//设置loglevel配置项</span><br><span class="line">config set loglevel &quot;notice&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="redis-conf参数说明"><a href="#redis-conf参数说明" class="headerlink" title="redis.conf参数说明"></a>redis.conf参数说明</h3><ol>
+<li><p><code>daemonize</code>：no</p>
+<ul>
+<li>守护进程（精灵进程），默认为no，使用yes启用（windows不支持）</li>
+<li>后台服务进程，生存周期较长</li>
+<li>独立于控制终端，周期性执行某种任务或等待处理某些发生的事件</li>
+<li>脱离终端原因：避免被终端的任何信息打断，也不在任何终端显示</li>
+</ul>
+</li>
+<li><p><code>pidfile</code>： <code>/var/run/redis.pid</code></p>
+<ul>
+<li>启用守护线程，默认将<code>pid</code>写入<code>redis.pid</code>文件，可指定</li>
+</ul>
+</li>
+<li><p><code>port</code>：6379</p>
+<ul>
+<li>默认监听端口</li>
+<li>原因： 6379 在手机按键上 MERZ 对应的号码，意大利歌女<code>Alessia Merz</code> 的名字</li>
+</ul>
+</li>
+<li><p><code>bind</code>：127.0.0.1</p>
+<ul>
+<li>绑定主机地址</li>
+</ul>
+</li>
+<li><p><code>timeout</code>：300</p>
+<ul>
+<li>客户端闲置多少秒后关闭链接，为0关闭此功能</li>
+</ul>
+</li>
+<li><p><code>loglevel</code>：notice</p>
+<ul>
+<li>日志记录级别，有四个值</li>
+<li><code>debug、verbose、notice、warning</code>，默认为<code>notice</code></li>
+</ul>
+</li>
+<li><p><code>logfile</code>：””</p>
+<ul>
+<li>日志记录方式，默认为标准输出</li>
+<li>启动守护进程，配置为标准输出，则日志会发送给 <code>/dev/null</code></li>
+</ul>
+</li>
+<li><p><code>databases</code>：0</p>
+<ul>
+<li><p>数据库数量，默认为0</p>
+</li>
+<li><p>使用<code>select</code>指定链接数据库id</p>
+</li>
+</ul>
+</li>
+<li><p><code>save</code>：<code>900 1</code></p>
+<ul>
+<li><p>指定时间内（秒数），有多少次更新，就将数据同步到数据文件，可以多个条件配合</p>
+</li>
+<li><p>默认三个条件：</p>
+</li>
+<li><p><code>save 900 1</code>：900秒内有1个更改</p>
+</li>
+<li><p><code>save 300 10</code>：300秒内有10个更改</p>
+</li>
+<li><p><code>save 60 10000</code>：60秒内有10000更改</p>
+</li>
+</ul>
+</li>
+<li><p><code>rdbcompression</code>：yes</p>
+<ul>
+<li><p>存储至本地数据库时是否压缩数据，默认为yes，采用LZF压缩</p>
+</li>
+<li><p>节省cpu时间，但数据文件变巨大</p>
+</li>
+</ul>
+</li>
+<li><p><code>dbfilename</code>：<code>dump.rdb</code></p>
+<ul>
+<li>指定本地数据库文件名，默认值为：<code>dump.rdb</code></li>
+</ul>
+</li>
+<li><p><code>dir</code>： <code>./</code></p>
+<ul>
+<li>指定本地数据库存放目录</li>
+</ul>
+</li>
+<li><p><code>slaveof </code>： <code>&lt;masterip&gt; &lt;masterport&gt;</code></p>
+<ul>
+<li>当本机为 slave 服务时，设置 master 服务的 IP 地址及端口</li>
+<li>Redis 启动时，自动从 master 进行数据同步</li>
+<li>默认：<code>&quot;&quot;</code></li>
+</ul>
+</li>
+<li><p><code>masterauth</code>： <code>&lt;master-password&gt;</code></p>
+<ul>
+<li>master 服务设置了密码保护时，slave 服务连接 master 的密码</li>
+</ul>
+</li>
+<li><p><code>requirepass</code>： <code>foobared</code></p>
+<ul>
+<li><p>Redis 连接密码</p>
+</li>
+<li><p>如果配置了连接密码，客户端在连接 Redis 时需要通过 <code>AUTH &lt;password&gt;</code> 命令提供密码</p>
+</li>
+<li><p>默认关闭</p>
+</li>
+</ul>
+</li>
+<li><p><code>maxclients</code> ：128</p>
+<ul>
+<li><p>同一时间最大客户端连接数，默认无限制，为0</p>
+</li>
+<li><p>客户端连接数到达限制，关闭新的连接并向客户端返回<code>max number of clients reached</code> 错误信息</p>
+</li>
+</ul>
+</li>
+<li><p><code>maxmemory</code>：<code>&lt;bytes&gt;</code></p>
+<ul>
+<li><p>最大内存限制</p>
+</li>
+<li><p>满内存，尝试清楚已到期或即将到期的<code>key</code></p>
+</li>
+<li><p>清除后还是满内存时，无法进行写操作，但可以进行读操作</p>
+</li>
+<li><p>新vm机制，key存放内存区，value存放swap区</p>
+</li>
+</ul>
+</li>
+<li><p><code>appendonly</code>：no</p>
+<ul>
+<li><p>默认为no</p>
+</li>
+<li><p>是否在每次更新操作后进行日志记录</p>
+</li>
+<li><p>默认情况下是异步的把数据写入磁盘</p>
+</li>
+<li><p>如果不开启，可能会在断电时导致一段时间内的数据丢失</p>
+</li>
+<li><p>同步数据文件是按save 条件来同步的，所以有的数据会在一段时间内只存在于内存中</p>
+</li>
+</ul>
+</li>
+<li><p><code>appendfilename</code>：<code>appendonly.aof</code></p>
+<ul>
+<li>更新日志文件名，默认值<code>appendonly.aof</code></li>
+</ul>
+</li>
+<li><p><code>appendfsync</code>：<code>everysec</code></p>
+<ul>
+<li>更新条件，3个默认值</li>
+<li>no：等操作系统进行数据缓存同步到磁盘（快）</li>
+<li>always：每次更新操作后手动调用 fsync() 将数据写到磁盘（慢，安全）</li>
+<li>everysec：每秒同步一次（折中，默认值）</li>
+</ul>
+</li>
+<li><p><code>vm-enabled</code>：no</p>
+<ul>
+<li>是否启用虚拟内存，默认为no</li>
+</ul>
+</li>
+<li><p><code>vm-swap-file</code>：<code>/tmp/redis.swap</code></p>
+<ul>
+<li>虚拟内存文件路径，默认值为<code> /tmp/redis.swap</code>，不可多个 Redis 实例共享</li>
+</ul>
+</li>
+<li><p><code>vm-max-memory</code>：0</p>
+<ul>
+<li>所有大于值的数据存入虚拟内存</li>
+<li>默认值为0，所有value都存磁盘</li>
+</ul>
+</li>
+<li><p><code>vm-page-size</code>：32</p>
+<ul>
+<li>默认值32</li>
+<li>一个对象可以保存在多个page上，一个page不能被多个对象共享</li>
+<li>根据存储数据大小决定</li>
+<li>存储小对象设置为32或64</li>
+</ul>
+</li>
+<li><p><code>vm-pages</code>：123456</p>
+<ul>
+<li>默认值为空<code>list</code>或<code>set</code></li>
+<li>设置 swap 文件中的 page 数量，由于页表（一种表示页面空闲或使用的 bitmap）是在放在内存中的，在磁盘上每 8 个 pages 将消耗 1byte 的内存</li>
+</ul>
+</li>
+<li><p><code>vm-max-threads</code>：4</p>
+<ul>
+<li>设置访问swap文件的线程数，最好不要超过机器的核数</li>
+<li>设置为0，所有对swap文件的操作都是串行</li>
+<li>默认值为4</li>
+</ul>
+</li>
+<li><p><code>glueoutputbuf</code>：yes</p>
+<ul>
+<li>向客户端应答时，是否把较小的包合并为一个包发送</li>
+<li>默认为开启</li>
+</ul>
+</li>
+<li><p><code>hash-max-zipmap-entries 64</code><br><code>hash-max-zipmap-value 512</code></p>
+<ul>
+<li>超过一定的数量或者最大的元素超过某一临界值时，采用一种特殊的哈希算法</li>
+</ul>
+</li>
+<li><p><code>activerehashing</code>： yes</p>
+<ul>
+<li>是否激活重置哈希，默认为开启</li>
+</ul>
+</li>
+<li><p><code>include </code>：<code>/path/to/local.conf</code></p>
+<ul>
+<li>指定包含其它的配置文件</li>
+<li>可以在同一主机上多个Redis实例之间使用同一份配置文件</li>
+<li>各个实例又拥有自己的特定配置文件</li>
+</ul>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://yongfn.github.io/Fly_NBlog">Nyf</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://yongfn.github.io/Fly_NBlog/2023/05/27/Redis%E9%85%8D%E7%BD%AE/">https://yongfn.github.io/Fly_NBlog/2023/05/27/Redis配置/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://yongfn.github.io/Fly_NBlog" target="_blank">Nyf's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/Fly_NBlog/tags/Redis/">Redis</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.staticaly.com/gh/YongFN/blog-images@master/info/avatar.6yjil4vlz800.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Fly_NBlog/2023/05/30/Redis%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E4%B8%8E%E6%93%8D%E4%BD%9C/" title="Redis基本命令与操作"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Redis基本命令与操作</div></div></a></div><div class="next-post pull-right"><a href="/Fly_NBlog/2021/12/05/Vue2%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/" title="Vue2笔记（二）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Vue2笔记（二）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/Fly_NBlog/2023/05/30/Redis%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E4%B8%8E%E6%93%8D%E4%BD%9C/" title="Redis基本命令与操作"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-30</div><div class="title">Redis基本命令与操作</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.staticaly.com/gh/YongFN/blog-images@master/info/avatar.6yjil4vlz800.webp" onerror="this.onerror=null;this.src='/Fly_NBlog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Nyf</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/Fly_NBlog/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/Fly_NBlog/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/Fly_NBlog/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/YongFN"><i class="fab fa-github"></i><span>关注我</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="/Fly_NBlog/yongfeng721@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客~如有错误希望各位大佬在评论区指正~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.1.</span> <span class="toc-text">使用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#config%E5%91%BD%E4%BB%A4"><span class="toc-number">2.1.</span> <span class="toc-text">config命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redis-conf%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="toc-number">2.2.</span> <span class="toc-text">redis.conf参数说明</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Fly_NBlog/2023/06/16/Linux%EF%BC%88%E4%B8%89%EF%BC%89/" title="Linux（三）">Linux（三）</a><time datetime="2023-06-16T18:14:11.000Z" title="发表于 2023-06-16 18:14:11">2023-06-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Fly_NBlog/2023/06/14/Linux%EF%BC%88%E4%BA%8C%EF%BC%89/" title="Linux（二）">Linux（二）</a><time datetime="2023-06-14T22:49:20.000Z" title="发表于 2023-06-14 22:49:20">2023-06-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Fly_NBlog/2023/06/14/Linux%EF%BC%88%E4%B8%80%EF%BC%89/" title="Linux（一）">Linux（一）</a><time datetime="2023-06-14T21:18:06.000Z" title="发表于 2023-06-14 21:18:06">2023-06-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Fly_NBlog/2023/06/05/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" title="面向对象">面向对象</a><time datetime="2023-06-05T22:31:09.000Z" title="发表于 2023-06-05 22:31:09">2023-06-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Fly_NBlog/2023/06/02/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="数据库">数据库</a><time datetime="2023-06-02T21:58:58.000Z" title="发表于 2023-06-02 21:58:58">2023-06-02</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.staticaly.com/gh/YongFN/blog-images@master/pic/bg.298z7yio7ph.webp')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Nyf</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/Fly_NBlog/js/utils.js"></script><script src="/Fly_NBlog/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '40068a4e5aa2b8394f28',
+      clientSecret: 'ee365d41bced52ec7d1e30f74e77d437a943da66',
+      repo: 'BlogComments',
+      owner: 'YongFN',
+      admin: ['YongFN'],
+      id: 'd9bcb3779e62ef90d79012618660cad3',
+      updateCountCallback: commentCount
+    },{"proxy":"https://majestic-cat-83be9b.netlify.app/github_access_token"}))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    getCSS('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css')
+    getScript('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.textContent= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/Fly_NBlog/js/search/local-search.js"></script></div></div></body></html>

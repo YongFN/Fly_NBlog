@@ -1,0 +1,336 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Less文档学习 | Nyf's blog</title><meta name="author" content="Nyf"><meta name="copyright" content="Nyf"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="概览Less （Leaner Style Sheets 的缩写） 是一门向后兼容的 CSS 扩展语言 变量（Variables）1234567@width: 10px;	&#x2F;&#x2F;@符号声明变量@height: @width + 10px;#header &amp;#123;    width: @width;    height: @height;&amp;#125;  编译为： 1234#header &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Less文档学习">
+<meta property="og:url" content="https://yongfn.github.io/Fly_NBlog/2021/12/04/Less%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Nyf&#39;s blog">
+<meta property="og:description" content="概览Less （Leaner Style Sheets 的缩写） 是一门向后兼容的 CSS 扩展语言 变量（Variables）1234567@width: 10px;	&#x2F;&#x2F;@符号声明变量@height: @width + 10px;#header &amp;#123;    width: @width;    height: @height;&amp;#125;  编译为： 1234#header &amp;#123;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/YongFN/blog-images@master/info/avatar.6yjil4vlz800.webp">
+<meta property="article:published_time" content="2021-12-04T20:50:33.000Z">
+<meta property="article:modified_time" content="2023-06-24T14:58:15.138Z">
+<meta property="article:author" content="Nyf">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="Less">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.staticaly.com/gh/YongFN/blog-images@master/info/avatar.6yjil4vlz800.webp"><link rel="shortcut icon" href="https://cdn.staticaly.com/gh/YongFN/blog-images@master/info/avatar.6yjil4vlz800.webp"><link rel="canonical" href="https://yongfn.github.io/Fly_NBlog/2021/12/04/Less%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/Fly_NBlog/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/Fly_NBlog/',
+  algolia: undefined,
+  localSearch: {"path":"/Fly_NBlog/search.json","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Nyf","link":"链接: ","source":"来源: Nyf's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Less文档学习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2023-06-24 14:58:15'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/c/font_4095704_r23pho9flu.css"><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.staticaly.com/gh/YongFN/blog-images@master/info/avatar.6yjil4vlz800.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/Fly_NBlog/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/Fly_NBlog/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/Fly_NBlog/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/Fly_NBlog/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Fly_NBlog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/Fly_NBlog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/Fly_NBlog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/Fly_NBlog/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.staticaly.com/gh/YongFN/blog-images@master/pic/bg.298z7yio7ph.webp')"><nav id="nav"><span id="blog-info"><a href="/Fly_NBlog/" title="Nyf's blog"><span class="site-name">Nyf's blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/Fly_NBlog/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/Fly_NBlog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/Fly_NBlog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/Fly_NBlog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/Fly_NBlog/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Less文档学习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-04T20:50:33.000Z" title="发表于 2021-12-04 20:50:33">2021-12-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-06-24T14:58:15.138Z" title="更新于 2023-06-24 14:58:15">2023-06-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/Fly_NBlog/categories/Less/">Less</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Less文档学习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/Fly_NBlog/2021/12/04/Less%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/#post-comment"><span class="gitalk-comment-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>Less （Leaner Style Sheets 的缩写） 是一门向后兼容的 CSS 扩展语言</p>
+<h2 id="变量（Variables）"><a href="#变量（Variables）" class="headerlink" title="变量（Variables）"></a>变量（Variables）</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@width:</span> <span class="number">10px</span>;	<span class="comment">//@符号声明变量</span></span><br><span class="line"><span class="variable">@height:</span> <span class="variable">@width</span> + <span class="number">10px</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#header</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="variable">@width</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="variable">@height</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译为：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#header</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="混合-x2F-混入（Mixins）"><a href="#混合-x2F-混入（Mixins）" class="headerlink" title="混合&#x2F;混入（Mixins）"></a>混合&#x2F;混入（Mixins）</h2><ul>
+<li><p>混合（mixins）是将一组属性从一个规则集混入到另一个规则集的方法。例：我们定义一个class如下</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.bordered</span> &#123;</span><br><span class="line">	<span class="attribute">border-top</span>: dotted <span class="number">1px</span> black;</span><br><span class="line">    <span class="attribute">border-bottom</span>: solid <span class="number">2px</span> black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们希望在另一个规则集中使用上面规则集的属性，只需输入所需属性的class名称，如下所示：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#menu</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">	<span class="attribute">color</span>: <span class="number">#111</span>;</span><br><span class="line">	<span class="selector-class">.bordered</span>();	<span class="comment">//使用上述class的属性</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.post</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">    <span class="selector-class">.bordered</span>();	<span class="comment">//使用上述class的属性</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>补充：CSS选择器权重</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>权重</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>!important</td>
+<td>无穷</td>
+</tr>
+<tr>
+<td>行内样式(style&#x3D;”width:20px;…..”)</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>id</td>
+<td>100</td>
+</tr>
+<tr>
+<td>class &#x2F; 属性选择符 &#x2F; 伪类</td>
+<td>10</td>
+</tr>
+<tr>
+<td>标签</td>
+<td>1</td>
+</tr>
+<tr>
+<td>通配符</td>
+<td>0</td>
+</tr>
+</tbody></table>
+</blockquote>
+</li>
+</ul>
+<h2 id="嵌套（Nesting）"><a href="#嵌套（Nesting）" class="headerlink" title="嵌套（Nesting）"></a>嵌套（Nesting）</h2><p>模仿HTML的组织结构，使代码更加简洁明了</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#header</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: black;</span><br><span class="line">    <span class="selector-class">.nav</span> &#123;</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.logo</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>还可以将 伪类选择器（pseudo-selectors）与混入（mixins）一同使用，下面是一个经典的 clearfix 技巧，重写为一个混入（mixins）（<code>&amp;</code> 表示当前选择器的父级）：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    zoom: 1;</span><br><span class="line">    </span><br><span class="line">    <span class="selector-tag">&amp;</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">        <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">        <span class="attribute">display</span>: block;</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">clear</span>: both;</span><br><span class="line">        <span class="attribute">visibility</span>: hidden;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="规则嵌套和冒泡"><a href="#规则嵌套和冒泡" class="headerlink" title="@规则嵌套和冒泡"></a>@规则嵌套和冒泡</h2><p>@ 规则（例如 <code>@media</code> 或 <code>@supports</code>）可以与选择器以相同的方式进行嵌套。@规则会被放在前面，在同一规则集中的其他元素的相对顺序保持不变。这叫做冒泡（bubbling）</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.component</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">30px</span>;</span><br><span class="line">    <span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">768px</span>)&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">600px</span>;</span><br><span class="line">        <span class="keyword">@media</span> (<span class="attribute">min-resolution</span>: <span class="number">192dpi</span>)&#123;</span><br><span class="line">			<span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(<span class="number">45deg</span>,transparent <span class="number">5%</span>,transparent <span class="number">5%</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">1280px</span>)&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">800px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译为：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.component</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">768px</span>)&#123;</span><br><span class="line">	<span class="selector-class">.component</span> &#123;</span><br><span class="line">    	<span class="attribute">width</span>: <span class="number">600px</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">768px</span>) <span class="keyword">and</span> (<span class="attribute">min-resolution</span>: <span class="number">192dpi</span>)&#123;</span><br><span class="line">    <span class="selector-class">.componetn</span> &#123;</span><br><span class="line">        <span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(<span class="number">45deg</span>,transparent <span class="number">5%</span>,transparent <span class="number">5%</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">1280px</span>)&#123;</span><br><span class="line">    <span class="selector-class">.component</span>: &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">800px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="运算（Operations）"><a href="#运算（Operations）" class="headerlink" title="运算（Operations）"></a>运算（Operations）</h2><p>算术运算符：<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code> 可以对任何 <code>数字</code>、<code>颜色</code> 或 <code>变量</code>进行运算。</p>
+<p>算术运算符在 <code>加</code>、<code>减</code> 之前会进行单位换算，计算结果以<code>最左侧</code>操作数的<code>单位类型</code>为准，如果单位换算无效或失去意义，则忽略。无效的单位换算例如：</p>
+<p><code>px</code> 到 <code>cm</code> 或 <code>rad</code> 到 <code>%</code> 的转换</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//所有操作数被转换成相同的单位</span></span><br><span class="line"><span class="variable">@conversion-1:</span> <span class="number">5cm</span> + <span class="number">10mm</span>;	<span class="comment">//6cm</span></span><br><span class="line"><span class="variable">@conversion-2:</span> <span class="number">2</span> - <span class="number">3cm</span> - <span class="number">5mm</span>;	<span class="comment">//-1.5cm</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//conversion is impossible（转换无效）</span></span><br><span class="line"><span class="variable">@incompatible-units:</span> <span class="number">2</span> + <span class="number">5px</span> - <span class="number">3cm</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//example with variables（变量示例）</span></span><br><span class="line"><span class="variable">@base:</span> <span class="number">5%</span>;</span><br><span class="line"><span class="variable">@filler:</span> <span class="variable">@base</span> * <span class="number">2</span>;</span><br><span class="line"><span class="variable">@other:</span> <span class="variable">@base</span> + <span class="variable">@filler</span>;</span><br></pre></td></tr></table></figure>
+
+<p>乘法和除法不作转换，这两种运算在大多数情况下都没有意义，<code>一个长度乘以一个长度就得到一个区域</code>，而<code>CSS是不支持指定区域的</code>。Less将按数字的原样进行操作，并将为计算结果指定明确的单位类型。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@base:</span> <span class="number">2cm</span> * <span class="number">3mm</span>;	<span class="comment">//6cm</span></span><br></pre></td></tr></table></figure>
+
+<p>可以对颜色进行算术运算：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@color:</span> <span class="number">#224488</span> /<span class="number">2</span>;	<span class="comment">//#112244</span></span><br><span class="line"><span class="attribute">background-color</span>: <span class="number">#112244</span> + <span class="number">#111</span>;	<span class="comment">//#223355</span></span><br></pre></td></tr></table></figure>
+
+<p>calc() 特例</p>
+<p>为了与CSS保持兼容，<code>calc()</code>并不对数学表达式进行计算，但是在嵌套函数中会计算变量和数学公式的值。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@var:</span> <span class="number">50vh</span>/<span class="number">2</span>;</span><br><span class="line"><span class="attribute">width</span>: <span class="built_in">calc</span>(<span class="number">50%</span> + (<span class="variable">@var</span> - <span class="number">20px</span>));	<span class="comment">//calc(50% + (25vh - 20px))</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="转义（Escaping）"><a href="#转义（Escaping）" class="headerlink" title="转义（Escaping）"></a>转义（Escaping）</h2><p>转义（Escaping）允许你使用任意字符串作为属性或变量值。任何 <code>~&quot;anything&quot;</code> 或 <code>~&#39;anything&#39;</code> 形式的内容都将按原样输出，除非 <code>interpolation</code> </p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@min768:</span> <span class="string">~&quot;(min-width: 768px)&quot;</span>;</span><br><span class="line"><span class="selector-class">.element</span> &#123;</span><br><span class="line">    <span class="keyword">@media</span> <span class="variable">@min768</span>&#123;</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">1.2rem</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译为：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">768px</span>)&#123;</span><br><span class="line">    <span class="selector-class">.element</span> &#123;</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">1.2rem</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意，从Less3.5开始，可以简写为：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@min768:</span> (<span class="attribute">min-width</span>: <span class="number">768px</span>);</span><br><span class="line"><span class="selector-class">.element</span>&#123;</span><br><span class="line">    <span class="keyword">@media</span> <span class="variable">@min768</span> &#123;</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">1.2rem</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在Less3.5+版本中，许多以前需要<code>&quot;引号转义&quot;</code>的情况就不再需要了</p>
+<h2 id="函数（Function）"><a href="#函数（Function）" class="headerlink" title="函数（Function）"></a>函数（Function）</h2><p>Less内置了多种函数用于转换颜色、处理字符串、算术运算等，这些函数在后面会详细学习。</p>
+<p>函数的用法非常简单，举个例子：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@base:</span> <span class="number">#f04615</span>;</span><br><span class="line"><span class="variable">@width:</span> <span class="number">0.5</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.class</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="built_in">percentage</span>(<span class="variable">@width</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">saturate</span>(<span class="variable">@base</span>,<span class="number">5%</span>);</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">spin</span>(<span class="built_in">lighten</span>(<span class="variable">@base</span>,<span class="number">25%</span>),<span class="number">8</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>percentage</code>函数将<code>0.5</code> 转化为 <code>50%</code></li>
+<li><code>saturate</code>函数将颜色饱和度增加 <code>5%</code></li>
+<li><code>lighten</code>函数将颜色亮度降低 <code>25%</code></li>
+<li><code>spin</code>函数将色相值增加 <code>8</code></li>
+</ul>
+<h2 id="映射（Maps）"><a href="#映射（Maps）" class="headerlink" title="映射（Maps）"></a>映射（Maps）</h2><p>从Less3.5开始，可以将混入（mixins）和规则集（rulesets）作为一组值的映射（map）使用。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#colors</span>()&#123;</span><br><span class="line">    primary: blue;</span><br><span class="line">    secondary: green;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.button</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: #colors[primary];</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid #colors[secondary];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出为：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.button</span> &#123;</span><br><span class="line">	<span class="attribute">color</span>: blue;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="作用域（Scope）"><a href="#作用域（Scope）" class="headerlink" title="作用域（Scope）"></a>作用域（Scope）</h2><p>Less中的作用域与CSS中的类似。首先在本地查找变量和混入（mixins），如果找不到，则从<code>&quot;父&quot;</code>级作用域继承。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@var:</span> red;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#page</span> &#123;</span><br><span class="line">    <span class="variable">@var:</span> white;</span><br><span class="line">    <span class="selector-id">#header</span> &#123;</span><br><span class="line">        <span class="attribute">color</span>: <span class="variable">@var</span>;	<span class="comment">//white</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>混入（mixins）和变量的定义不必在引用之前事先定义。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@var:</span> red;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#page</span> &#123;</span><br><span class="line">    <span class="selector-id">#header</span> &#123;</span><br><span class="line">        <span class="attribute">color</span>: <span class="variable">@var</span>;	<span class="comment">//white</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable">@var:</span> white;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="注释（Comments）"><a href="#注释（Comments）" class="headerlink" title="注释（Comments）"></a>注释（Comments）</h2><p>块注释和行注释都可以</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*	一个块注释</span></span><br><span class="line"><span class="comment"> *	style comment	*/</span></span><br><span class="line"><span class="variable">@var:</span> red;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一行注释</span></span><br><span class="line"><span class="variable">@var:</span> white;</span><br></pre></td></tr></table></figure>
+
+<h2 id="导入（Importing）"><a href="#导入（Importing）" class="headerlink" title="导入（Importing）"></a>导入（Importing）</h2><p>导入一个 <code>.less</code> 文件，此文件中的所有变量就可以全部使用。</p>
+<p>如果导入的文件是 <code>.less</code>扩展名，则可以将扩展名省略</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span> <span class="string">&quot;library&quot;</span>;	<span class="comment">// library.less</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;typo.css&quot;</span></span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://yongfn.github.io/Fly_NBlog">Nyf</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://yongfn.github.io/Fly_NBlog/2021/12/04/Less%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/">https://yongfn.github.io/Fly_NBlog/2021/12/04/Less文档学习/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://yongfn.github.io/Fly_NBlog" target="_blank">Nyf's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/Fly_NBlog/tags/CSS/">CSS</a><a class="post-meta__tags" href="/Fly_NBlog/tags/Less/">Less</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.staticaly.com/gh/YongFN/blog-images@master/info/avatar.6yjil4vlz800.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Fly_NBlog/2021/12/05/Vue2%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/" title="Vue2笔记（二）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Vue2笔记（二）</div></div></a></div><div class="next-post pull-right"><a href="/Fly_NBlog/2021/12/03/Webpack%E5%9F%BA%E7%A1%80/" title="Webpack基础"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Webpack基础</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.staticaly.com/gh/YongFN/blog-images@master/info/avatar.6yjil4vlz800.webp" onerror="this.onerror=null;this.src='/Fly_NBlog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Nyf</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/Fly_NBlog/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/Fly_NBlog/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/Fly_NBlog/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/YongFN"><i class="fab fa-github"></i><span>关注我</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="/Fly_NBlog/yongfeng721@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客~如有错误希望各位大佬在评论区指正~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%A7%88"><span class="toc-number">1.</span> <span class="toc-text">概览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%EF%BC%88Variables%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">变量（Variables）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B7%E5%90%88-x2F-%E6%B7%B7%E5%85%A5%EF%BC%88Mixins%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">混合&#x2F;混入（Mixins）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%EF%BC%88Nesting%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">嵌套（Nesting）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%84%E5%88%99%E5%B5%8C%E5%A5%97%E5%92%8C%E5%86%92%E6%B3%A1"><span class="toc-number">5.</span> <span class="toc-text">@规则嵌套和冒泡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%EF%BC%88Operations%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">运算（Operations）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AC%E4%B9%89%EF%BC%88Escaping%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">转义（Escaping）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%EF%BC%88Function%EF%BC%89"><span class="toc-number">8.</span> <span class="toc-text">函数（Function）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%A0%E5%B0%84%EF%BC%88Maps%EF%BC%89"><span class="toc-number">9.</span> <span class="toc-text">映射（Maps）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%EF%BC%88Scope%EF%BC%89"><span class="toc-number">10.</span> <span class="toc-text">作用域（Scope）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A%EF%BC%88Comments%EF%BC%89"><span class="toc-number">11.</span> <span class="toc-text">注释（Comments）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%EF%BC%88Importing%EF%BC%89"><span class="toc-number">12.</span> <span class="toc-text">导入（Importing）</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Fly_NBlog/2023/06/16/Linux%EF%BC%88%E4%B8%89%EF%BC%89/" title="Linux（三）">Linux（三）</a><time datetime="2023-06-16T18:14:11.000Z" title="发表于 2023-06-16 18:14:11">2023-06-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Fly_NBlog/2023/06/14/Linux%EF%BC%88%E4%BA%8C%EF%BC%89/" title="Linux（二）">Linux（二）</a><time datetime="2023-06-14T22:49:20.000Z" title="发表于 2023-06-14 22:49:20">2023-06-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Fly_NBlog/2023/06/14/Linux%EF%BC%88%E4%B8%80%EF%BC%89/" title="Linux（一）">Linux（一）</a><time datetime="2023-06-14T21:18:06.000Z" title="发表于 2023-06-14 21:18:06">2023-06-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Fly_NBlog/2023/06/05/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" title="面向对象">面向对象</a><time datetime="2023-06-05T22:31:09.000Z" title="发表于 2023-06-05 22:31:09">2023-06-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Fly_NBlog/2023/06/02/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="数据库">数据库</a><time datetime="2023-06-02T21:58:58.000Z" title="发表于 2023-06-02 21:58:58">2023-06-02</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.staticaly.com/gh/YongFN/blog-images@master/pic/bg.298z7yio7ph.webp')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Nyf</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/Fly_NBlog/js/utils.js"></script><script src="/Fly_NBlog/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '40068a4e5aa2b8394f28',
+      clientSecret: 'ee365d41bced52ec7d1e30f74e77d437a943da66',
+      repo: 'BlogComments',
+      owner: 'YongFN',
+      admin: ['YongFN'],
+      id: 'de401230f43e8d048c78412346ea511d',
+      updateCountCallback: commentCount
+    },{"proxy":"https://majestic-cat-83be9b.netlify.app/github_access_token"}))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    getCSS('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css')
+    getScript('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.textContent= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/Fly_NBlog/js/search/local-search.js"></script></div></div></body></html>
